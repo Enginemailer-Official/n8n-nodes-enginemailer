@@ -45,3 +45,16 @@ type PropertiesOfTrigger<M extends { resourceTrigger: string; operationTrigger: 
 })[];
 
 export type TriggerSubscriberProperties = PropertiesOfTrigger<EnginemailerTriggerSubscriber>;
+
+// getWorkflowStaticData data type
+export interface ILastCheckedTimeEntry {
+	[key: string]: string;
+}
+
+export interface ILastCheckTimes {
+	[key: string]: ILastCheckedTimeEntry;
+}
+
+export interface INodeStaticData {
+	lastTimeChecked?: ILastCheckTimes;
+}

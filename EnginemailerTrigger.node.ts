@@ -9,7 +9,10 @@ import {
 
 import * as subscriber from './v1/triggers/subscriber';
 import { loadOptions } from './v1/methods';
-import { EnginemailerTrigger as EnginemailerTriggerType } from './v1/triggers/interfaces';
+import {
+	EnginemailerTrigger as EnginemailerTriggerType,
+	INodeStaticData,
+} from './v1/triggers/interfaces';
 
 export class EnginemailerTrigger implements INodeType {
 	description: INodeTypeDescription = {
@@ -53,9 +56,17 @@ export class EnginemailerTrigger implements INodeType {
 
 	async poll(this: IPollFunctions): Promise<INodeExecutionData[][] | null> {
 		let responseData: IDataObject | IDataObject[] = [];
+		const staticData = this.getWorkflowStaticData('node') as INodeStaticData;
 
 		const resourceTrigger = this.getNodeParameter('resourceTrigger');
 		const operationTrigger = this.getNodeParameter('operationTrigger');
+
+		const now = Date.now().toLocaleString();
+		// const startDate = (staticData.lastTimeChecked as string) || Date.now().toLocaleString();
+		// const endDate = now;
+
+		this.logger.debug('testing123');
+		this.logger.debug(JSON.stringify(staticData));
 
 		const enginemailerTrigger = {
 			resourceTrigger,
@@ -66,6 +77,15 @@ export class EnginemailerTrigger implements INodeType {
 			case 'subscriberTrigger':
 				responseData = await subscriber[enginemailerTrigger.operationTrigger].execution.call(this);
 		}
+
+		if (!staticData.lastTimeChecked) {
+			staticData.lastTimeChecked = {};
+		}
+		if (!staticData.lastTimeChecked[resourceTrigger as string]) {
+			staticData.lastTimeChecked[resourceTrigger as string] = {};
+		}
+
+		staticData.lastTimeChecked[resourceTrigger as string][operationTrigger as string] = now;
 
 		return [this.helpers.returnJsonArray(responseData)]; //TODO continue
 	}

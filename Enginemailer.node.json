@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-base.enginemailer",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Marketing", "Communication"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "TODO add in later"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "TODO add in later"
+			}
+		]
+	}
+}

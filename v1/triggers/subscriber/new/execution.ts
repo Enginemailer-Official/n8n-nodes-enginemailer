@@ -9,13 +9,22 @@ export async function newSubscriber(this: IPollFunctions): Promise<INodeExecutio
 
 	const source = this.getNodeParameter('source');
 	const limit = this.getNodeParameter('limit');
-
-	// TODO continue extract params
+	const filter_form = this.getNodeParameter('filter_form', null);
+	const filter_page = this.getNodeParameter('filter_page', null);
+	const filter_popups = this.getNodeParameter('filter_popups', null);
 
 	qs.source = source;
 	qs.limit = limit;
+	if (filter_form) {
+		qs.filter_form = filter_form;
+	}
+	if (filter_page) {
+		qs.filter_page = filter_page;
+	}
+	if (filter_popups) {
+		qs.filter_popups = filter_popups;
+	}
 
-	// TODO continue
 	const responseData = await apiRequest.call(this, requestMethod, endpoint, body, qs);
 
 	return this.helpers.returnJsonArray(responseData as IDataObject[]);

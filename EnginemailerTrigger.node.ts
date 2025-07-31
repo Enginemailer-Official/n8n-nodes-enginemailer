@@ -65,9 +65,6 @@ export class EnginemailerTrigger implements INodeType {
 		// const startDate = (staticData.lastTimeChecked as string) || Date.now().toLocaleString();
 		// const endDate = now;
 
-		this.logger.debug('testing123');
-		this.logger.debug(JSON.stringify(staticData));
-
 		const enginemailerTrigger = {
 			resourceTrigger,
 			operationTrigger,

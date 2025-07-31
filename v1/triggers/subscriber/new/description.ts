@@ -58,7 +58,7 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 			},
 		},
 		description: 'Set the maximum number of records returned in the API response (up to 50).',
-		default: '',
+		default: 50,
 		placeholder: '1',
 		typeOptions: {
 			minValue: 1,

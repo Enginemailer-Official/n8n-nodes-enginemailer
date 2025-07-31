@@ -7,14 +7,15 @@ import {
 } from 'n8n-workflow';
 
 type EnginemailerTriggerMap = {
-	subscriberTrigger: 'newSub';
-	// | 'unsubscribed'
-	// | 'tagged'
-	// | 'deleted'
-	// | 'untagged'
-	// | 'updatedFields'
-	// | 'triggeredAutoresponder'
-	// | 'completedAutoresponder';
+	subscriberTrigger:
+		| 'newSub'
+		| 'unsubscribed'
+		| 'tagged'
+		| 'deleted'
+		| 'untagged'
+		| 'fieldsUpdated'
+		| 'autoresponderTriggered'
+		| 'autoresponderCompleted';
 };
 
 type Prefix<T> = {

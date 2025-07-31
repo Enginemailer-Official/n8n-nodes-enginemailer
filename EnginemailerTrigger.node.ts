@@ -61,9 +61,19 @@ export class EnginemailerTrigger implements INodeType {
 		const resourceTrigger = this.getNodeParameter('resourceTrigger');
 		const operationTrigger = this.getNodeParameter('operationTrigger');
 
-		const now = Date.now().toLocaleString();
-		// const startDate = (staticData.lastTimeChecked as string) || Date.now().toLocaleString();
-		// const endDate = now;
+		const now = new Date();
+
+		// convert Epoch time to yyyy-MM-dd HH:mm:ss
+		const pad = (n: number) => n.toString().padStart(2, '0');
+		const formatted =
+			`${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())} ` +
+			`${pad(now.getUTCHours())}:${pad(now.getUTCMinutes())}:${pad(now.getUTCSeconds())}`;
+
+		const lastPollingDateTime =
+			staticData?.lastTimeChecked?.[resourceTrigger as string][operationTrigger as string] ||
+			formatted;
+
+		const qs = { lastpollingdate: lastPollingDateTime };
 
 		const enginemailerTrigger = {
 			resourceTrigger,
@@ -72,7 +82,10 @@ export class EnginemailerTrigger implements INodeType {
 
 		switch (resourceTrigger) {
 			case 'subscriberTrigger':
-				responseData = await subscriber[enginemailerTrigger.operationTrigger].execution.call(this);
+				responseData = await subscriber[enginemailerTrigger.operationTrigger].execution.call(
+					this,
+					qs,
+				);
 		}
 
 		if (!staticData.lastTimeChecked) {
@@ -82,7 +95,7 @@ export class EnginemailerTrigger implements INodeType {
 			staticData.lastTimeChecked[resourceTrigger as string] = {};
 		}
 
-		staticData.lastTimeChecked[resourceTrigger as string][operationTrigger as string] = now;
+		staticData.lastTimeChecked[resourceTrigger as string][operationTrigger as string] = formatted;
 
 		return [this.helpers.returnJsonArray(responseData)]; //TODO continue
 	}

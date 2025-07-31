@@ -4,9 +4,10 @@ import { apiRequest } from '../../../transport';
 // TODO test the function
 export async function subscriberTriggeredAutoresponder(
 	this: IPollFunctions,
+	preQS: IDataObject,
 ): Promise<INodeExecutionData[]> {
 	const body = {} as IDataObject;
-	const qs = {} as IDataObject;
+	const qs = { ...preQS } as IDataObject;
 	const requestMethod = 'GET';
 	const endpoint = '/subscriberautorespondertriggered';
 

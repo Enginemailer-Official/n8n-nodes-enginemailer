@@ -1,5 +1,6 @@
 import { INodeProperties } from 'n8n-workflow';
 
+import * as addOrUpdate from './addOrUpdate';
 import * as find from './find';
 
 export const description: INodeProperties[] = [
@@ -15,6 +16,13 @@ export const description: INodeProperties[] = [
 		},
 		options: [
 			{
+				name: 'Add or Update Subscriber',
+				value: 'addOrUpdate',
+				description: 'Create a new subscriber or update the subscriber if the data exists.',
+				action: 'Create a new subscriber or update the subscriber if the data exists.',
+				routing: addOrUpdate.routing,
+			},
+			{
 				name: 'Find Subscriber',
 				value: 'find',
 				description: 'Search for an existing subscriber in your account',
@@ -24,6 +32,7 @@ export const description: INodeProperties[] = [
 		],
 		default: 'find', //TODO change
 	},
+	...addOrUpdate.description,
 	...find.description,
 	// TODO add respective description
 ];

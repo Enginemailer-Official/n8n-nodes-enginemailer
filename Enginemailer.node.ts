@@ -2,6 +2,7 @@ import { INodeType, INodeTypeDescription, NodeConnectionType } from 'n8n-workflo
 
 import * as subscriber from './v1/actions/subscriber';
 import { BASE_URL } from './v1/transport';
+import { loadOptions } from './v1/methods';
 
 export class Enginemailer implements INodeType {
 	description: INodeTypeDescription = {
@@ -46,4 +47,6 @@ export class Enginemailer implements INodeType {
 			...subscriber.description,
 		],
 	};
+
+	methods = { loadOptions };
 }

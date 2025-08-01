@@ -1,7 +1,7 @@
 import { AllEntities, Entity, PropertiesOf } from 'n8n-workflow';
 
 type EnginemailerMap = {
-	subscriber: 'addOrUpdate' | 'deactivate' | 'delete' | 'tag' | 'untag' | 'find' | 'sendEmail';
+	subscriber: 'addOrUpdate' | 'deactivate' | 'deleteSub' | 'tag' | 'untag' | 'find' | 'sendEmail';
 };
 
 export type Enginemailer = AllEntities<EnginemailerMap>;

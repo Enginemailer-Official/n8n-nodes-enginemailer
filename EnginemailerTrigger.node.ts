@@ -97,6 +97,6 @@ export class EnginemailerTrigger implements INodeType {
 
 		staticData.lastTimeChecked[resourceTrigger as string][operationTrigger as string] = formatted;
 
-		return [this.helpers.returnJsonArray(responseData)]; //TODO continue
+		return [this.helpers.returnJsonArray(responseData)];
 	}
 }

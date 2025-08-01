@@ -39,6 +39,11 @@ export async function getListOfCampaigns(this: ILoadOptionsFunctions) {
 	return await loadOptionsAPIRequest(this, endpoint);
 }
 
+export async function getListOfTemplates(this: ILoadOptionsFunctions) {
+	const endpoint = '/listtemplates';
+	return await loadOptionsAPIRequest(this, endpoint);
+}
+
 async function loadOptionsAPIRequest(
 	func: ILoadOptionsFunctions,
 	endpoint: string,

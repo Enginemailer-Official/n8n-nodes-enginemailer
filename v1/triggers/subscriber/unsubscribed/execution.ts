@@ -2,14 +2,14 @@ import { IDataObject, INodeExecutionData, IPollFunctions } from 'n8n-workflow';
 import { apiRequest } from '../../../transport';
 
 // TODO test the function
-export async function subscriberDeleted(
+export async function subscriberUnsubscribed(
 	this: IPollFunctions,
 	preQS: IDataObject,
 ): Promise<INodeExecutionData[]> {
 	const body = {} as IDataObject;
 	const qs = { ...preQS } as IDataObject;
 	const requestMethod = 'GET';
-	const endpoint = '/subscribersdeleted';
+	const endpoint = '/unsubscribe';
 
 	const limit = this.getNodeParameter('limit');
 	const filter = this.getNodeParameter('filter');

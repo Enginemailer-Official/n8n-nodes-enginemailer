@@ -14,6 +14,10 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 		},
 		options: [
 			{
+				name: 'All',
+				value: 'All',
+			},
+			{
 				name: 'Form',
 				value: 'Form',
 			},
@@ -42,7 +46,7 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 				value: 'Popup',
 			},
 		],
-		default: '',
+		default: 'All',
 		description: 'Filter Subscribers by source',
 	},
 	{

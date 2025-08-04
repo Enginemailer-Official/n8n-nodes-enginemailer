@@ -20,6 +20,15 @@ export async function apiRequest(
 ) {
 	const baseUrl = BASE_URL;
 
+	// Remove All value from query
+	for (let q in query) {
+		if (query[q] === 'All') {
+			delete query[q];
+		}
+	}
+
+	this.logger.debug(`query: ${JSON.stringify(query)}`);
+
 	const options: IHttpRequestOptions = {
 		method,
 		body,

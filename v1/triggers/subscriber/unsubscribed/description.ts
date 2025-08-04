@@ -35,6 +35,10 @@ export const subscriberUnsubscribedDescription: TriggerSubscriberProperties = [
 		},
 		options: [
 			{
+				name: 'All',
+				value: 'All',
+			},
+			{
 				name: 'Autoresponder',
 				value: 'Autoresponder',
 			},
@@ -43,7 +47,7 @@ export const subscriberUnsubscribedDescription: TriggerSubscriberProperties = [
 				value: 'Campaign',
 			},
 		],
-		default: '',
+		default: 'All',
 		description: '',
 	},
 	{

@@ -53,9 +53,14 @@ export const subscriberAddOrUpdateDescription: SubscriberProperties = [
 				operation: ['addOrUpdate'],
 			},
 		},
-		default: `[{ "customfield_key": "first_name", "customfield_value": "John" }]`,
+		default: `[
+	{
+		"customfield_key": "first_name",
+		"customfield_value": "John"
+	}
+]`,
 		description:
-			'Enter the custom fields data in JSON format. To find the custom field key for your account, log in to your Enginemailer portal and navigate to the Custom Fields section: [Custom Fields](https://portal.enginemailer.com/Subscribers/CustomFields).',
+			'Enter the custom fields data in JSON format. To find the custom field key for your account, log in to your Enginemailer portal and navigate to the Custom Fields section: <a href="https://portal.enginemailer.com/Subscribers/CustomFields">Custom Fields</a>.',
 		typeOptions: {
 			alwaysOpenEditWindow: true,
 		},

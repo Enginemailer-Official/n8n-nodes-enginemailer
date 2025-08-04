@@ -50,6 +50,7 @@ export const subscriberUnsubscribedDescription: TriggerSubscriberProperties = [
 		displayName: 'Autoresponder',
 		name: 'filter_autoresponder',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],
@@ -67,6 +68,7 @@ export const subscriberUnsubscribedDescription: TriggerSubscriberProperties = [
 		displayName: 'Campaign',
 		name: 'filter_campaign',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],

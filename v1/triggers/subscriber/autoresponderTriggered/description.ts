@@ -25,6 +25,7 @@ export const subscriberTriggeredAutoresponderDescription: TriggerSubscriberPrope
 		displayName: 'Autoresponder',
 		name: 'filter_autoresponder',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],

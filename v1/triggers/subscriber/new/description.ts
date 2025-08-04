@@ -6,7 +6,6 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 		name: 'source',
 		type: 'options',
 		noDataExpression: true,
-		required: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],
@@ -70,6 +69,7 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 		displayName: 'Form',
 		name: 'filter_form',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],
@@ -88,6 +88,7 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 		displayName: 'Landing Page',
 		name: 'filter_page',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],
@@ -106,6 +107,7 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 		displayName: 'List of Popups',
 		name: 'filter_popups',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],
@@ -113,7 +115,8 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 				source: ['Popup'],
 			},
 		},
-		description: 'Provide a list of popups',
+		description:
+			"This is only applicable if the source is set to 'Popup'. If not selected, it will filter by all popups.",
 		default: '',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfPopups',

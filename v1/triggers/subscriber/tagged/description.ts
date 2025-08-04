@@ -25,6 +25,7 @@ export const subscriberTaggedDescription: TriggerSubscriberProperties = [
 		displayName: 'Subcategory',
 		name: 'filter_subcategory',
 		type: 'options',
+		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],

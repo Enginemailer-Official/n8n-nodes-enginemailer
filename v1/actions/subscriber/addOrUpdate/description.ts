@@ -91,7 +91,7 @@ export const subscriberAddOrUpdateDescription: SubscriberProperties = [
 				value: 'Ignore',
 			},
 		],
-		default: '',
+		default: 'Ignore',
 		description:
 			"These options are only applicable if data exists. The default option is 'Ignore,' which leaves the data unchanged. Choose 'Overwrite' to replace the existing data with the new information, or select 'Append' to add the new data without removing any existing content.",
 	},

@@ -17,7 +17,7 @@
   ```
   npm install n8n -g
   ```
-- Recommended: follow n8n's guide to set up your development environment.
+- Recommended: follow [n8n's guide](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/) to set up your development environment.
 
 ## Installation
 
@@ -38,7 +38,7 @@ Reference: [run your node locally](https://docs.n8n.io/integrations/creating-nod
 
 ```
 .
-├── dist/
+├── dist/ (generated after run npm run build)
 ├── v1/
 ├── Enginemailer.node.json
 ├── Enginemailer.node.ts
@@ -63,7 +63,7 @@ Reference: [run your node locally](https://docs.n8n.io/integrations/creating-nod
 
 ## v1 Structure
 
-v1 using declarative style to create action node, and programmatic style to create trigger node. [Check here](https://docs.n8n.io/integrations/creating-nodes/plan/choose-node-method/) for more details.
+v1 using **declarative style** to create action node, and **programmatic style** to create trigger node. [Check here](https://docs.n8n.io/integrations/creating-nodes/plan/choose-node-method/) for more details.
 
 ```
 .
@@ -72,7 +72,7 @@ v1 using declarative style to create action node, and programmatic style to crea
 │   ├── methods/
 │   ├── transport/
 │   ├── triggers/
-│   ├── EnginemailerApiV1.credentials.ts/
+│   ├── EnginemailerApiV1.credentials.ts
 ```
 
 ### v1 Structure Overview
@@ -110,13 +110,31 @@ For example:
 1. If the function need to have new resource, then go to `Enginemailer.node.ts` to add new options object under `options` array
 2. Go to `{version}/actions/{resource}`, if is a new resource, create new folder under `actions` folder
 3. In `actions` folder, Go to `interfaces.ts`, and add resource/operation name accordingly in `EnginemailerMap`
-4. Go to respective `{resource}` folder, and create new folder with `{operation}` name.
-5. In respective `{operation}` folder, create `index.ts`, `description.ts`, and `routing.ts`
+4. Go to `{resource}` folder, and create new folder with `{operation}` name.
+5. In `{operation}` folder, create `index.ts`, `description.ts`, and `routing.ts`
 6. Define the fields that you need user to input for this operation in `descripition.ts`
 7. Define the API structure for the new function in `routing.ts`
 8. Import both `description.ts` and `routing.ts` in `index.ts`, and export it
-9. Go to `{resource}/index.ts`, and define its properties and options, import the `index.ts` file in `{operation}`, and use spread operator `...` to expand it at the bottom part of the properties.
+9. Go to `{resource}/index.ts`, and define its properties and add as new option in `options` field, import the `index.ts` file in `{operation}`, and use spread operator `...` to expand it at the bottom part of the properties.
 
 ### Trigger Node add new resource/operation
 
-Most of the parts is same as Action, except it is using `execution` rather than `routing`, so you need to define its custom execution function, can refer `triggers/subscriber/new/execution.ts`, and also need to add function call handler in `EnginemailerTrigger.node.ts` - `poll` function
+Most of the parts is same as Action, except it is using `execution` rather than `routing`, so you need to
+
+1. Define its custom execution function, can refer `triggers/subscriber/new/execution.ts`,
+2. Export operation folder in `triggers/{resource}/index.ts`, to allow polling function able to use it.
+3. Add function call handler in `EnginemailerTrigger.node.ts` - `poll` function if a new resource created.
+
+## Logging
+
+1. Logging in n8n is different with normal nodeJS or browser developer console way to debug.
+2. According to [n8n's logging](https://docs.n8n.io/hosting/logging-monitoring/logging/), you would need to set `N8N_LOG_LEVEL` to `debug` and `N8N_LOG_OUTPUT` to `console` as environment variables. With bash terminal (git bash), you can do it easily by
+   ```
+   export N8N_LOG_LEVEL=debug
+   export N8N_LOG_OUTPUT=console
+   ```
+3. To add log in your function, you need to write as below:
+   ```
+   this.logger.log("custom message")
+   ```
+4. Custom log should appear in terminal when running `n8n start`

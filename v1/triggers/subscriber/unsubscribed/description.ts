@@ -63,7 +63,7 @@ export const subscriberUnsubscribedDescription: TriggerSubscriberProperties = [
 			},
 		},
 		description: "This is only applicable if the unsubscribe source is set to 'Autoresponder.'",
-		default: '',
+		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfAutoresponders',
 		},
@@ -81,7 +81,7 @@ export const subscriberUnsubscribedDescription: TriggerSubscriberProperties = [
 			},
 		},
 		description: "This is only applicable if the unsubscribe source is set to 'Campaign.'",
-		default: '',
+		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfCampaigns',
 		},

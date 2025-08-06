@@ -33,7 +33,7 @@ export const subscriberTaggedDescription: TriggerSubscriberProperties = [
 			},
 		},
 		description: 'Filter by subcategory',
-		default: '',
+		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfSubcategories',
 		},

@@ -83,7 +83,7 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 		},
 		description:
 			"This is only applicable if the source is set to 'Form.' If not selected, it will filter by all forms.",
-		default: '',
+		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfForms',
 		},
@@ -102,7 +102,7 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 		},
 		description:
 			"This is only applicable if the source is set to 'LandingPage' If not selected, it will filter by all landing pages.",
-		default: '',
+		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfLandingPages',
 		},
@@ -121,7 +121,7 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 		},
 		description:
 			"This is only applicable if the source is set to 'Popup'. If not selected, it will filter by all popups.",
-		default: '',
+		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfPopups',
 		},

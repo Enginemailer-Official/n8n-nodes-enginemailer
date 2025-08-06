@@ -33,7 +33,7 @@ export const subscriberTriggeredAutoresponderDescription: TriggerSubscriberPrope
 			},
 		},
 		description: 'Filter by autoresponder',
-		default: '',
+		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfAutoresponders',
 		},

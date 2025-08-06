@@ -52,6 +52,19 @@ async function loadOptionsAPIRequest(
 
 	const returnData: INodePropertyOptions[] = [];
 
+	const operation = func.getNodeParameter('operation', 'ignore');
+
+	// prepend All options
+	if (
+		!(
+			((operation === 'addOrUpdate' || operation === 'tag' || operation === 'untag') &&
+				endpoint === '/listsubcategories') ||
+			(operation === 'sendEmail' && endpoint === '/listtemplates')
+		)
+	) {
+		returnData.push({ name: 'All', value: 'All' });
+	}
+
 	for (const data of responseData) {
 		returnData.push({
 			name: data.Name as string,

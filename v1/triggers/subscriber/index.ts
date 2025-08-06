@@ -46,7 +46,7 @@ export const description: INodeProperties[] = [
 				name: 'Subscriber Tagged',
 				value: 'tagged',
 				description: 'Triggers when a subscriber is tagged with a subcategory.',
-				action: 'On tagged with a subcategory',
+				action: 'On tagged with subcategory',
 			},
 			{
 				name: 'Subscriber Deleted',
@@ -58,7 +58,7 @@ export const description: INodeProperties[] = [
 				name: 'Subscriber Untagged',
 				value: 'untagged',
 				description: 'Triggers when a subscriber is untagged from a subcategory.',
-				action: 'On untagged with a subcategory',
+				action: 'On untagged with subcategory',
 			},
 			{
 				name: 'Subscriber Fields Updated',

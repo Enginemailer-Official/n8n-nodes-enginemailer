@@ -17,7 +17,7 @@ export const subscriberAddOrUpdateDescription: SubscriberProperties = [
 	},
 	{
 		displayName: 'Source Type',
-		name: 'sourceType',
+		name: 'sourcetype',
 		type: 'string',
 		displayOptions: {
 			show: {
@@ -93,6 +93,6 @@ export const subscriberAddOrUpdateDescription: SubscriberProperties = [
 		],
 		default: 'Ignore',
 		description:
-			"These options are only applicable if data exists. The default option is 'Ignore,' which leaves the data unchanged. Choose 'Overwrite' to replace the existing data with the new information, or select 'Append' to add the new data without removing any existing content.",
+			"These options are only applicable if data exists. The default option is 'Ignore,' which leaves the data unchanged. Choose 'Overwrite' to replace the existing data with the new information, or select 'Append' to add the new data without removing any existing content. Note: 'Append' only applicable to Subcategories field",
 	},
 ];

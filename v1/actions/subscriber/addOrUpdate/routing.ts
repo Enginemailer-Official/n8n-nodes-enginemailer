@@ -7,7 +7,7 @@ export const subscriberADdOrUpdate: INodePropertyRouting = {
 		url: '/addupdatesubscriber',
 		body: {
 			email: '={{$parameter.email}}',
-			sourceType: '={{$parameter.sourceType}}',
+			sourcetype: '={{$parameter.sourcetype}}',
 			subcategories: '={{$parameter.subcategories}}',
 			customfields: '={{$parameter.customfields}}',
 			updatetype: '={{$parameter.updatetype}}',

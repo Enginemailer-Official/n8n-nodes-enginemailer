@@ -40,7 +40,7 @@ export async function apiRequest(
 		},
 	};
 
-	return await this.helpers.httpRequestWithAuthentication.call(this, 'EnginemailerApiV1', options);
+	return await this.helpers.httpRequestWithAuthentication.call(this, 'enginemailerV1Api', options);
 }
 
 export async function apiRequestAllItems(

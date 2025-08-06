@@ -33,11 +33,11 @@
 	"n8n": {
 		"n8nNodesApiVersion": 1,
 		"credentials": [
-			"dist/v1/EnginemailerApiV1.credentials.js"
+			"dist/credentials/EnginemailerV1Api.credentials.js"
 		],
 		"nodes": [
-			"dist/Enginemailer.node.js",
-			"dist/EnginemailerTrigger.node.js"
+			"dist/nodes/Enginemailer/Enginemailer.node.js",
+			"dist/nodes/Enginemailer/EnginemailerTrigger.node.js"
 		]
 	},
 	"devDependencies": {

@@ -1,7 +1,6 @@
 import { IDataObject, INodeExecutionData, IPollFunctions } from 'n8n-workflow';
 import { apiRequest } from '../../../transport';
 
-// TODO test the function
 export async function subscriberUnsubscribed(
 	this: IPollFunctions,
 	preQS: IDataObject,

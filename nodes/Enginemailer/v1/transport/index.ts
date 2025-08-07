@@ -9,7 +9,7 @@ import {
 	IPollFunctions,
 } from 'n8n-workflow';
 
-export const BASE_URL = 'https://enginemailerpabbly.azurewebsites.net/api/N8N/v1';
+export const BASE_URL = 'https://connect.enginemailer.com/api/N8N/v1';
 
 export async function apiRequest(
 	this: IHookFunctions | IExecuteFunctions | ILoadOptionsFunctions | IPollFunctions,

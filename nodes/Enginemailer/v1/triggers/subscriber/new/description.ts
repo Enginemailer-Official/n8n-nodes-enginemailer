@@ -1,3 +1,5 @@
+/* eslint-disable n8n-nodes-base/node-param-type-options-max-value-present */
+/* eslint-disable n8n-nodes-base/node-param-description-wrong-for-limit */
 import { TriggerSubscriberProperties } from '../../interfaces';
 
 export const subscriberNewDescription: TriggerSubscriberProperties = [
@@ -18,32 +20,32 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 				value: 'All',
 			},
 			{
-				name: 'Form',
-				value: 'Form',
-			},
-			{
 				name: 'API',
 				value: 'API',
 			},
 			{
-				name: 'Manual',
-				value: 'Manual',
-			},
-			{
-				name: 'LandingPage',
-				value: 'LandingPage',
+				name: 'Form',
+				value: 'Form',
 			},
 			{
 				name: 'Import',
 				value: 'Import',
 			},
 			{
-				name: 'WhatsApp',
-				value: 'WhatsApp',
+				name: 'LandingPage',
+				value: 'LandingPage',
+			},
+			{
+				name: 'Manual',
+				value: 'Manual',
 			},
 			{
 				name: 'Popup',
 				value: 'Popup',
+			},
+			{
+				name: 'WhatsApp',
+				value: 'WhatsApp',
 			},
 		],
 		default: 'All',
@@ -60,7 +62,7 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 				operationTrigger: ['newSub'],
 			},
 		},
-		description: 'Set the maximum number of records returned in the API response (up to 50).',
+		description: 'Set the maximum number of records returned in the API response (up to 50)',
 		default: 50,
 		placeholder: '1',
 		typeOptions: {
@@ -70,10 +72,9 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 		},
 	},
 	{
-		displayName: 'Form',
+		displayName: 'Form Name or ID',
 		name: 'filter_form',
 		type: 'options',
-		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],
@@ -82,17 +83,17 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 			},
 		},
 		description:
-			"This is only applicable if the source is set to 'Form.' If not selected, it will filter by all forms.",
+			'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>',
+		// eslint-disable-next-line n8n-nodes-base/node-param-default-wrong-for-options
 		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfForms',
 		},
 	},
 	{
-		displayName: 'Landing Page',
+		displayName: 'Landing Page Name or ID',
 		name: 'filter_page',
 		type: 'options',
-		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],
@@ -101,17 +102,17 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 			},
 		},
 		description:
-			"This is only applicable if the source is set to 'LandingPage' If not selected, it will filter by all landing pages.",
+			'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>',
+		// eslint-disable-next-line n8n-nodes-base/node-param-default-wrong-for-options
 		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfLandingPages',
 		},
 	},
 	{
-		displayName: 'List of Popups',
+		displayName: 'Popups Name or ID',
 		name: 'filter_popups',
 		type: 'options',
-		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],
@@ -120,7 +121,8 @@ export const subscriberNewDescription: TriggerSubscriberProperties = [
 			},
 		},
 		description:
-			"This is only applicable if the source is set to 'Popup'. If not selected, it will filter by all popups.",
+			'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>',
+		// eslint-disable-next-line n8n-nodes-base/node-param-default-wrong-for-options
 		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfPopups',

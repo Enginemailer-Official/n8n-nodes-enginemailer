@@ -5,6 +5,7 @@ export const subscriberTagSubcategoryDescription: SubscriberProperties = [
 		displayName: 'Email',
 		name: 'email',
 		type: 'string',
+		placeholder: 'name@email.com',
 		required: true,
 		displayOptions: {
 			show: {
@@ -16,18 +17,19 @@ export const subscriberTagSubcategoryDescription: SubscriberProperties = [
 		description: 'Email of the subscriber',
 	},
 	{
-		displayName: 'Subcategory',
+		displayName: 'Subcategory (Names or IDs)',
 		name: 'subcategories',
 		type: 'multiOptions',
+		description:
+			'Choose from the list, or specify IDs using an <a href="https://docs.n8n.io/code/expressions/">expression</a>',
 		required: true,
-		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resource: ['subscriber'],
 				operation: ['tag'],
 			},
 		},
-		default: '',
+		default: [],
 		typeOptions: {
 			loadOptionsMethod: 'getListOfSubcategories',
 		},

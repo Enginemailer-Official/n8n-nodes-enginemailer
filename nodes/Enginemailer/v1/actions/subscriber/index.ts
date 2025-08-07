@@ -23,7 +23,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Add or Update Subscriber',
 				value: 'addOrUpdate',
-				description: 'Create a new subscriber or update the subscriber if the data exists.',
+				description: 'Create a new subscriber or update the subscriber if the data exists',
 				action: 'Add or update subscriber',
 				routing: addOrUpdate.routing,
 			},
@@ -42,20 +42,6 @@ export const description: INodeProperties[] = [
 				routing: deleteSub.routing,
 			},
 			{
-				name: 'Tag Subscriber to a Subcategory',
-				value: 'tag',
-				description: 'Assign a subscriber to a specific subcategory',
-				action: 'Tag subscriber to a subcatogory',
-				routing: tag.routing,
-			},
-			{
-				name: 'Untag Subscriber From Subcategory',
-				value: 'untag',
-				description: 'Remove a subscriber from a specific subcategory.',
-				action: 'Untag subscriber from subcategory',
-				routing: untag.routing,
-			},
-			{
 				name: 'Find Subscriber',
 				value: 'find',
 				description: 'Search for an existing subscriber in your account',
@@ -65,12 +51,26 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Send Email',
 				value: 'sendEmail',
-				description: 'Sends an email to the specified email address.',
+				description: 'Sends an email to the specified email address',
 				action: 'Send email',
 				routing: sendEmail.routing,
 			},
+			{
+				name: 'Tag Subscriber to a Subcategory',
+				value: 'tag',
+				description: 'Assign a subscriber to a specific subcategory',
+				action: 'Tag subscriber to a subcatogory',
+				routing: tag.routing,
+			},
+			{
+				name: 'Untag Subscriber From Subcategory',
+				value: 'untag',
+				description: 'Remove a subscriber from a specific subcategory',
+				action: 'Untag subscriber from subcategory',
+				routing: untag.routing,
+			},
 		],
-		default: 'find', //TODO change
+		default: 'find',
 	},
 	...addOrUpdate.description,
 	...deactivate.description,

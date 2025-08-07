@@ -1,3 +1,5 @@
+/* eslint-disable n8n-nodes-base/node-param-type-options-max-value-present */
+/* eslint-disable n8n-nodes-base/node-param-description-wrong-for-limit */
 import { TriggerSubscriberProperties } from '../../interfaces';
 
 export const subscriberUnsubscribedDescription: TriggerSubscriberProperties = [
@@ -12,7 +14,7 @@ export const subscriberUnsubscribedDescription: TriggerSubscriberProperties = [
 				operationTrigger: ['unsubscribed'],
 			},
 		},
-		description: 'Set the maximum number of records returned in the API response (up to 50).',
+		description: 'Set the maximum number of records returned in the API response (up to 50)',
 		default: 50,
 		placeholder: '1',
 		typeOptions: {
@@ -48,13 +50,11 @@ export const subscriberUnsubscribedDescription: TriggerSubscriberProperties = [
 			},
 		],
 		default: 'All',
-		description: '',
 	},
 	{
-		displayName: 'Autoresponder',
+		displayName: 'Autoresponder Name or ID',
 		name: 'filter_autoresponder',
 		type: 'options',
-		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],
@@ -62,17 +62,18 @@ export const subscriberUnsubscribedDescription: TriggerSubscriberProperties = [
 				filter: ['Autoresponder'],
 			},
 		},
-		description: "This is only applicable if the unsubscribe source is set to 'Autoresponder.'",
+		description:
+			'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>',
+		// eslint-disable-next-line n8n-nodes-base/node-param-default-wrong-for-options
 		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfAutoresponders',
 		},
 	},
 	{
-		displayName: 'Campaign',
+		displayName: 'Campaign Name or ID',
 		name: 'filter_campaign',
 		type: 'options',
-		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resourceTrigger: ['subscriberTrigger'],
@@ -80,7 +81,9 @@ export const subscriberUnsubscribedDescription: TriggerSubscriberProperties = [
 				filter: ['Campaign'],
 			},
 		},
-		description: "This is only applicable if the unsubscribe source is set to 'Campaign.'",
+		description:
+			'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>',
+		// eslint-disable-next-line n8n-nodes-base/node-param-default-wrong-for-options
 		default: 'All',
 		typeOptions: {
 			loadOptionsMethod: 'getListOfCampaigns',

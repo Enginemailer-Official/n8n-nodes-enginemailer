@@ -5,6 +5,7 @@ export const subscriberSendEmailDescription: SubscriberProperties = [
 		displayName: 'Email',
 		name: 'email',
 		type: 'string',
+		placeholder: 'name@email.com',
 		required: true,
 		displayOptions: {
 			show: {
@@ -29,15 +30,15 @@ export const subscriberSendEmailDescription: SubscriberProperties = [
 		},
 		options: [
 			{
-				name: 'template',
+				name: 'Template',
 				value: 'template',
 			},
 			{
-				name: 'html',
+				name: 'HTML',
 				value: 'html',
 			},
 		],
-		default: '',
+		default: 'html',
 	},
 	{
 		displayName: 'HTML Content',
@@ -105,10 +106,9 @@ export const subscriberSendEmailDescription: SubscriberProperties = [
 		default: '',
 	},
 	{
-		displayName: 'Template',
+		displayName: 'Template Name or ID',
 		name: 'template_id',
 		type: 'options',
-		noDataExpression: true,
 		displayOptions: {
 			show: {
 				resource: ['subscriber'],
@@ -121,7 +121,7 @@ export const subscriberSendEmailDescription: SubscriberProperties = [
 			loadOptionsMethod: 'getListOfTemplates',
 		},
 		description:
-			"When using a template, you don't need to provide HTML content. The subject and sender email will follow the template.",
+			'The subject and sender email will follow the template. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
 	},
 	{
 		displayName: 'Substitution Tags',
@@ -161,6 +161,6 @@ export const subscriberSendEmailDescription: SubscriberProperties = [
 		},
 		placeholder: 'user1@domain.com, user2@domain.com',
 		default: '',
-		description: 'Enter up to 10 email addresses, separated by commas.',
+		description: 'Enter up to 10 email addresses, separated by commas',
 	},
 ];

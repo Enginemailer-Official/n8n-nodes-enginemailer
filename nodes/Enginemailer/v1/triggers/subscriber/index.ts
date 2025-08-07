@@ -79,7 +79,7 @@ export const description: INodeProperties[] = [
 				action: 'On untagged with subcategory',
 			},
 		],
-		default: 'newSub', //TODO change
+		default: 'newSub',
 	},
 	...newSub.description,
 	...unsubscribed.description,

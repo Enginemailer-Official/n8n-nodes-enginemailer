@@ -1,6 +1,8 @@
 # n8n-nodes-enginemailer
 
-This is an n8n community node. It lets you use Enginemailer in your n8n workflows, including creating, updating, and deleting subscriber, as well as send email to others.
+This is an n8n community node. It lets you use Enginemailer in your n8n workflows.
+
+Enginemailer is an all-in-one email marketing platform offering lead generation, marketing, transactional and automation features.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
@@ -8,7 +10,6 @@ This is an n8n community node. It lets you use Enginemailer in your n8n workflow
 [Operations](#operations)  
 [Credentials](#credentials)  
 [Compatibility](#compatibility)  
-[Usage](#usage)  
 [Resources](#resources)
 
 ## Installation
@@ -65,9 +66,7 @@ To configure this credential, you'll need:
 
 ## Compatibility
 
-- Tested with version 1.103.2
-
-## Usage
+- Tested against n8n version 1.103.2
 
 ### Node parameters
 

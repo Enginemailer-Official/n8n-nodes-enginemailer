@@ -59,7 +59,7 @@ export const description: INodeProperties[] = [
 				name: 'Tag Subscriber to a Subcategory',
 				value: 'tag',
 				description: 'Assign a subscriber to a specific subcategory',
-				action: 'Tag subscriber to a subcatogory',
+				action: 'Tag subscriber to subcatogory',
 				routing: tag.routing,
 			},
 			{

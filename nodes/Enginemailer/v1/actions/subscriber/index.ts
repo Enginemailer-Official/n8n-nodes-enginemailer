@@ -56,7 +56,7 @@ export const description: INodeProperties[] = [
 				routing: sendEmail.routing,
 			},
 			{
-				name: 'Tag Subscriber to a Subcategory',
+				name: 'Tag Subscriber to Subcategory',
 				value: 'tag',
 				description: 'Assign a subscriber to a specific subcategory',
 				action: 'Tag subscriber to subcatogory',

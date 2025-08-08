@@ -1,6 +1,6 @@
 {
-	"name": "n8n-nodes-enginemailer",
-	"version": "0.1.0",
+	"name": "@enginemailer/n8n-nodes-enginemailer",
+	"version": "1.0.0",
 	"description": "",
 	"keywords": [
 		"n8n-community-node-package"
@@ -39,6 +39,9 @@
 			"dist/nodes/Enginemailer/Enginemailer.node.js",
 			"dist/nodes/Enginemailer/EnginemailerTrigger.node.js"
 		]
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"devDependencies": {
 		"@typescript-eslint/parser": "~8.32.0",

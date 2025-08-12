@@ -3,7 +3,13 @@
 	"version": "1.0.0",
 	"description": "",
 	"keywords": [
-		"n8n-community-node-package"
+		"n8n-community-node-package",
+		"n8n-nodes",
+		"n8n",
+		"n8n-nodes-enginemailer",
+		"enginemailer",
+		"enginemailer-node",
+		"enginemailer-nodes"
 	],
 	"license": "MIT",
 	"homepage": "",

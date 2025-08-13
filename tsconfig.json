@@ -21,5 +21,14 @@
 		"skipLibCheck": true,
 		"outDir": "./dist/"
 	},
-	"include": ["**.node.ts", "**.node.json", "v1/**/*.node.ts", "v1/**/*.ts", "package.json"]
+	"include": [
+		"**.node.ts",
+		"**.node.json",
+		"nodes/Enginemailer/v1/**/*.node.ts",
+		"nodes/Enginemailer/v1/**/*.ts",
+		"package.json",
+		"credentials/EnginemailerV1Api.credentials.ts",
+		"nodes/Enginemailer/Enginemailer.node.ts",
+		"nodes/Enginemailer/EnginemailerTrigger.node.ts"
+	]
 }

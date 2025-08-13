@@ -1,9 +1,15 @@
 {
-	"name": "n8n-nodes-enginemailer",
-	"version": "0.1.0",
+	"name": "@enginemailer/n8n-nodes-enginemailer",
+	"version": "1.0.0",
 	"description": "",
 	"keywords": [
-		"n8n-community-node-package"
+		"n8n-community-node-package",
+		"n8n-nodes",
+		"n8n",
+		"n8n-nodes-enginemailer",
+		"enginemailer",
+		"enginemailer-node",
+		"enginemailer-nodes"
 	],
 	"license": "MIT",
 	"homepage": "",
@@ -33,12 +39,15 @@
 	"n8n": {
 		"n8nNodesApiVersion": 1,
 		"credentials": [
-			"dist/v1/EnginemailerApiV1.credentials.js"
+			"dist/credentials/EnginemailerV1Api.credentials.js"
 		],
 		"nodes": [
-			"dist/Enginemailer.node.js",
-			"dist/EnginemailerTrigger.node.js"
+			"dist/nodes/Enginemailer/Enginemailer.node.js",
+			"dist/nodes/Enginemailer/EnginemailerTrigger.node.js"
 		]
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"devDependencies": {
 		"@typescript-eslint/parser": "~8.32.0",

@@ -31,7 +31,7 @@ Reference: [run your node locally](https://docs.n8n.io/integrations/creating-nod
 2. Run `npm link` to push this npm package to your machine.
 3. cd to your n8n installation directory, which should park at `%USERPROFILE%\.n8n` in Windows.
 4. Create directory `custom` if it isn't exist.
-5. cd to `custom` directory, and run `npm link n8n-nodes-enginemailer`
+5. cd to `custom` directory, and run `npm link @enginemailer/n8n-nodes-enginemailer`
 6. cd back to your project directory, and run `n8n start` to run the n8n instance in your machine. You will need to press `o` key as instructed after running `n8n start` to open n8n in browser.
 
 ## Project Structure

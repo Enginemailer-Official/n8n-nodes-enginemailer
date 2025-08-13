@@ -1,140 +1,91 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# n8n-nodes-enginemailer
 
-# Enginemailer n8n node
+This is an n8n community node. It lets you use Enginemailer in your n8n workflows.
 
-## Reference
+Enginemailer is an all-in-one email marketing platform offering lead generation, marketing, transactional and automation features.
 
-[Repo template](https://github.com/n8n-io/n8n-nodes-starter/generate)
+[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-[n8n node creation tutorial](https://docs.n8n.io/integrations/creating-nodes/build/declarative-style-node/)
-
-[Folder structure reference](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Mattermost)
-
-## Prerequisites
-
-- NodeJS minimum version 20.
-- n8n local installation with:
-  ```
-  npm install n8n -g
-  ```
-- Recommended: follow [n8n's guide](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/) to set up your development environment.
+[Installation](#installation)  
+[Operations](#operations)  
+[Credentials](#credentials)  
+[Compatibility](#compatibility)  
+[Resources](#resources)
 
 ## Installation
 
-1. After clone the repo, run `npm i` to install dependencies
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
 
-## Run in Development
+## Operations
 
-Reference: [run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/)
+- Subscriber
+  - Add or update a subscriber
+  - Deactivate a subscriber
+  - Delete a subscriber
+  - Find a subscriber
+  - Send email
+  - Tag a subscriber to subcategory
+  - Untag a subscriber from subcategory
 
-1. After modified the code, run `npm run build` to transpile TypeScript file to JavaScript, and generate icon to display in the node. All generated JavaScript file will park under `/dist` directory.
-2. Run `npm link` to push this npm package to your machine.
-3. cd to your n8n installation directory, which should park at `%USERPROFILE%\.n8n` in Windows.
-4. Create directory `custom` if it isn't exist.
-5. cd to `custom` directory, and run `npm link @enginemailer/n8n-nodes-enginemailer`
-6. cd back to your project directory, and run `n8n start` to run the n8n instance in your machine. You will need to press `o` key as instructed after running `n8n start` to open n8n in browser.
+## Events
 
-## Project Structure
+- Subscriber
+  - On autoresponder completed
+  - On autoresponder triggered
+  - On subscribed
+  - On subscriber deleted
+  - On subscriber's fields updated
+  - On tagged with subcategory
+  - On unsubscribed
+  - On untagged with subcategory
 
-```
-.
-├── dist/ (generated after run npm run build)
-├── v1/
-├── Enginemailer.node.json
-├── Enginemailer.node.ts
-├── EnginemailerTrigger.node.json
-├── EnginemailerTrigger.node.ts
-```
+## Credentials
 
-### Project Root Structure Overview
+You can use these credentials to authenticate the following nodes:
 
-1. dist/
-   - Directory to store all generated JavaScript files after running `npm run build`.
-2. v1/
-   - Source directory for v1 nodes.
-3. Enginemailer.node.json
-   - Enginemailer Action Node metadata.
-4. Enginemailer.node.ts
-   - Enginemailer Action Node entry file.
-5. EnginemailerTrigger.node.json
-   - Enginemailer Trigger Node metadata.
-6. EnginemailerTrigger.node.ts
-   - Enginemailer Trigger Node entry file.
+- Enginemailer
+- Enginemailer Trigger
 
-## v1 Structure
+### Prerequisites
 
-v1 using **declarative style** to create action node, and **programmatic style** to create trigger node. [Check here](https://docs.n8n.io/integrations/creating-nodes/plan/choose-node-method/) for more details.
+Create an [Enginemailer](https://www.enginemailer.com/) account.
 
-```
-.
-├── v1/
-│   ├── actions/
-│   ├── methods/
-│   ├── transport/
-│   ├── triggers/
-│   ├── EnginemailerApiV1.credentials.ts
-```
+### Supported authentication methods
 
-### v1 Structure Overview
+- API key
 
-1. actions/
-   - Store all action node related files, including interfaces, description and routing.
-2. methods/
-   - Store all custom methods, currently store all functions related to dropdown API call.
-3. transport/
-   - Store all functions/config related to API request.
-4. triggers/
-   - Store all trigger node related files, including interfaces, description and execution.
-5. EnginemailerApiV1.credentials.ts
-   - Define credential type for user to configure, currently only allow API key.
+### Related resources
 
-## Node Creation
+Refer to [Enginemailer's API documentation](https://connect.enginemailer.com/n8n/index.html) for more information about the service.
 
-Some concepts to understand before proceed to node creation
+### Using API Key
 
-1. Resource:
-   - Represents category of data or functionality, can treat it as module.
-2. Operation:
-   - Represents an action/function that you can perform on the resource.
+To configure this credential, you'll need:
 
-For example:
+- An **API Key**: Generate an API key from the **Enginemailer** account -> API Keys. Refer to the [API Authentication documentation](https://enginemailer.zendesk.com/hc/en-us/articles/360057634711-Manage-API-keys-for-your-account) for more detailed instructions.
 
-- Resource: Subscriber
-- Operation: Find
-- After combine would be: A function to find subscriber.
+## Compatibility
 
-> Note: due to naming convention rule in n8n, we cannot define `resource` and `operation` in both Action and Trigger node, so for Trigger, the naming has changed to `resourceTrigger` and `operationTrigger`
+- Tested against n8n version 1.103.2
 
-### Action Node add new resource/operation
+### Node parameters
 
-1. If the function need to have new resource, then go to `Enginemailer.node.ts` to add new options object under `options` array
-2. Go to `{version}/actions/{resource}`, if is a new resource, create new folder under `actions` folder
-3. In `actions` folder, Go to `interfaces.ts`, and add resource/operation name accordingly in `EnginemailerMap`
-4. Go to `{resource}` folder, and create new folder with `{operation}` name.
-5. In `{operation}` folder, create `index.ts`, `description.ts`, and `routing.ts`
-6. Define the fields that you need user to input for this operation in `descripition.ts`
-7. Define the API structure for the new function in `routing.ts`
-8. Import both `description.ts` and `routing.ts` in `index.ts`, and export it
-9. Go to `{resource}/index.ts`, and define its properties and add as new option in `options` field, import the `index.ts` file in `{operation}`, and use spread operator `...` to expand it at the bottom part of the properties.
+Use these parameters to configure your node.
 
-### Trigger Node add new resource/operation
+#### Poll Times
 
-Most of the parts is same as Action, except it is using `execution` rather than `routing`, so you need to
+n8n's Enginemailer trigger node uses polling for check for updates on configured Enginemailer resources. The **Poll Times** parameter configures the querying frequency:
 
-1. Define its custom execution function, can refer `triggers/subscriber/new/execution.ts`,
-2. Export operation folder in `triggers/{resource}/index.ts`, to allow polling function able to use it.
-3. Add function call handler in `EnginemailerTrigger.node.ts` - `poll` function if a new resource created.
+- Every Minute
+- Every Hour
+- Every Day
+- Every Week
+- Every Month
+- Every X: Check for updates every given number of minutes or hours.
+- Custom: Customize the polling interval by providing a cron expression.
+  Use the **Add Poll Time** button to add more polling intervals.
 
-## Logging
+## Resources
 
-1. Logging in n8n is different with normal nodeJS or browser developer console way to debug.
-2. According to [n8n's logging](https://docs.n8n.io/hosting/logging-monitoring/logging/), you would need to set `N8N_LOG_LEVEL` to `debug` and `N8N_LOG_OUTPUT` to `console` as environment variables. With bash terminal (git bash), you can do it easily by
-   ```
-   export N8N_LOG_LEVEL=debug
-   export N8N_LOG_OUTPUT=console
-   ```
-3. To add log in your function, you need to write as below:
-   ```
-   this.logger.log("custom message")
-   ```
-4. Custom log should appear in terminal when running `n8n start`
+- [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
+- [Enginemailer's API documentation](https://connect.enginemailer.com/n8n/index.html)

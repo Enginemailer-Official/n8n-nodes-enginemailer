@@ -11,7 +11,8 @@ export class EnginemailerV1Api implements ICredentialType {
 	name = 'enginemailerV1Api';
 	displayName = 'Enginemailer V1 API';
 	icon: Icon = 'file:../nodes/Enginemailer/EM_Logo_Square.svg';
-	documentationUrl = 'TODO add url';
+	documentationUrl =
+		'https://enginemailer.zendesk.com/hc/en-us/articles/360057634711-Manage-API-keys-for-your-account';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'API Key',
